@@ -23,11 +23,6 @@ export default function HospitalCard({ hospital, isTop }) {
   const availableDoctors = hospital.doctorsOnGround.filter((d) => d.status === "available");
   const availableEquipment = hospital.equipment.filter((e) => e.available);
 
-  const handleCall = (e) => {
-    e.stopPropagation();
-    window.open(`tel:${hospital.phone.replace(/[^+\d]/g, "")}`, "_self");
-  };
-
   const handleNavigate = (e) => {
     e.stopPropagation();
     window.open(

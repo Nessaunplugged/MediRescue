@@ -19,9 +19,12 @@ export default function SOSButton({ onActivate }) {
 
   useEffect(() => {
     if (countdown === 0) {
-      onActivate();
+      const activate = onActivate;
+      setTimeout(() => {
+        activate();
+        if (navigator.vibrate) navigator.vibrate([200, 100, 200, 100, 500]);
+      }, 0);
       setCountdown(null);
-      if (navigator.vibrate) navigator.vibrate([200, 100, 200, 100, 500]);
     }
   }, [countdown, onActivate]);
 
